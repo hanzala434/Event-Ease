@@ -27,7 +27,7 @@ const HomePage = () => {
     }
     dispatch(getVendor());
     dispatch(getAllPackages());
-    dispatch(getBooking(user._id))
+   // dispatch(getBooking(user._id))
 
 
     return () => {
