@@ -10,7 +10,10 @@ const {errorHandler}=require('./middleware/errorMiddleware')
 
 connectDB();
 const app=express();
-app.use(cors());
+app.use(cors({
+    origin: process.env.FRONTEND_URL || 'https://event-ease-woxl.vercel.app/', // Set your frontend URL here
+  }));
+  
 app.use(express.json());
 app.use(express.urlencoded({extended:false}));
 
