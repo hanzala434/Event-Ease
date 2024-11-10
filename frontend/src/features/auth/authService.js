@@ -1,5 +1,5 @@
 import axios from 'axios'
-const API_URL='http://localhost:8000/api/users'
+const API_URL='https://event-ease-rho.vercel.app/api/users'
 
 //register user
 const register=async(userData)=>{
