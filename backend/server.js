@@ -13,8 +13,8 @@ injectSpeedInsights();
 connectDB();
 const app=express();
 app.use(cors({
-    origin: process.env.FRONTEND_URL || 'https://event-ease-1nik.vercel.app/', // Set your frontend URL here
-  }));
+  origin: '*', // Open to all origins (not recommended for production)
+}));
   
 app.use(express.json());
 app.use(express.urlencoded({extended:false}));
