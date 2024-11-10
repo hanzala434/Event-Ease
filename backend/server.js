@@ -6,7 +6,7 @@ const dotenv=require('dotenv').config()
 const port=8000
 const connectDB=require('./config/db')
 const {errorHandler}=require('./middleware/errorMiddleware')
-import { injectSpeedInsights } from '@vercel/speed-insights';
+const { injectSpeedInsights }=require('@vercel/speed-insights');
  
 injectSpeedInsights();
 
