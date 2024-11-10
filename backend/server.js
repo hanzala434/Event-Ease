@@ -13,7 +13,7 @@ injectSpeedInsights();
 connectDB();
 const app=express();
 app.use(cors({
-    origin: process.env.FRONTEND_URL || 'https://event-ease-woxl.vercel.app/', // Set your frontend URL here
+    origin: process.env.FRONTEND_URL || 'https://event-ease-1nik.vercel.app/', // Set your frontend URL here
   }));
   
 app.use(express.json());
