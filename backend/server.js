@@ -20,6 +20,12 @@ app.use(cors({
 
 app.options('*', cors()); // Allow preflight requests for all routes
 
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "https://event-ease-woxl.vercel.app");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
   
 app.use(express.json());
 app.use(express.urlencoded({extended:false}));
