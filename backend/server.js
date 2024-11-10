@@ -13,8 +13,13 @@ injectSpeedInsights();
 connectDB();
 const app=express();
 app.use(cors({
-  origin: '*', // Open to all origins (not recommended for production)
+  origin: 'https://event-ease-woxl.vercel.app', // Your frontend URL in production
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true,
 }));
+
+app.options('*', cors()); // Allow preflight requests for all routes
+
   
 app.use(express.json());
 app.use(express.urlencoded({extended:false}));
