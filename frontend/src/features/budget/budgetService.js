@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL='https://event-ease-1nik.vercel.app/api/setup-budget/'
+const API_URL='/api/setup-budget/'
 
 //create new budget
 const createBudget = async (budgetData, token) => {

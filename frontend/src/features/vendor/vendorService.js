@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL='https://event-ease-1nik.vercel.app/api/vendors/'
+const API_URL='/api/vendors/'
 
 //create new Vendor
 const createVendor = async (vendorData, token) => {

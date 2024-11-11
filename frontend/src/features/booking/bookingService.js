@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL='https://event-ease-1nik.vercel.app/api/booking/'
+const API_URL='/api/booking/'
 
 //create new booking
 const createBooking = async (bookingData,id,token) => {

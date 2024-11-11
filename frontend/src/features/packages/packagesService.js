@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL='https://event-ease-1nik.vercel.app/api/packages/'
+const API_URL='/api/packages/'
 
 //create new Services
 const createPackages = async (packagesData,id) => {
