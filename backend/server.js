@@ -3,7 +3,7 @@ const express = require('express');
 const colors=require('colors')
 const cors = require('cors');
 const dotenv=require('dotenv').config()
-const port=8000
+const port = process.env.PORT || 8000;
 const connectDB=require('./config/db')
 const {errorHandler}=require('./middleware/errorMiddleware')
 const { injectSpeedInsights }=require('@vercel/speed-insights');
@@ -18,7 +18,7 @@ app.use(cors({
   credentials: true,
 }));
 
-app.options('*', cors()); // Allow preflight requests for all routes
+app.options('*', cors()); 
 
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "https://event-ease-woxl.vercel.app");
