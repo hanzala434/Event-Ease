@@ -1,0 +1,16 @@
+{
+    "build": {
+      "env": {
+        "REACT_APP_API_URL": "https://event-ease-1nik.vercel.app/" // Use this to set environment variables
+      }
+    },
+    "rewrites": [
+      {
+        "source": "/api/(.*)",
+        "destination": "https://event-ease-1nik.vercel.app/api/$1" // Redirects API calls to backend
+      }
+    ],
+    "outputDirectory": "build", // If your build output directory is 'build'
+    "framework": "create-react-app"
+  }
+  
