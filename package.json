@@ -2,7 +2,7 @@
   "name": "event-ease",
   "version": "1.0.0",
   "description": "Event Manager App",
-  "main": "index.js",
+  "main": "backend/api/index.js",
   "scripts": {
     "start": "node backend/api/index.js",
     "server": "nodemon backend/api/index.js",
