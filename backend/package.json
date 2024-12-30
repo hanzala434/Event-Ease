@@ -6,7 +6,9 @@
   "scripts": {
     "start": "node api/index.js",
     "server": "nodemon api/index.js",
-    "client": "npm start --prefix frontend"
+    "client": "npm start --prefix frontend",
+    "dev": "npm run server",
+    "build": "npm run build"
   },
   "author": "",
   "license": "ISC",
