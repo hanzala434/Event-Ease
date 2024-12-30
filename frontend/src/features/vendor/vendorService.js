@@ -1,7 +1,7 @@
 import axios from "axios";
 
-const API_URL='/api/vendors/'
-
+const API_URL = `${process.env.REACT_APP_BACKEND}/api/vendors/`;
+console.log(API_URL)
 //create new Vendor
 const createVendor = async (vendorData, token) => {
     const config = {

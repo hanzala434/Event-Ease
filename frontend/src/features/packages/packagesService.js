@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL='/api/packages/'
+const API_URL = `${process.env.BACKEND}/api/packages/`;
 
 //create new packages
 const createPackages = async (packagesData,id) => {

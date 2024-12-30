@@ -77,7 +77,7 @@ function Login() {
             id="password" name="password" value={password} placeholder='Enter Your Password' onChange={onChange}/>
             </div>
 
-            <div className='flex m-auto bg-black w-10 justify-center rounded-full '>
+            <div className='flex m-auto bg-black w-10 justify-center rounded-full p-2 '>
                 <button type="submit" className='flex justify-center bg-red-900 text-white rounded-full'>Submit</button>
             </div>
         </form>

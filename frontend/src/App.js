@@ -1,7 +1,7 @@
 import React from 'react';
 //import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Route,RouterProvider,createRoutesFromElements,createBrowserRouter } from 'react-router-dom';
+import { Route,Routes } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import CategoryPage from './pages/CategoryPage';
 import 'react-bootstrap'
@@ -22,12 +22,11 @@ import PackagePage from './pages/PackagePage';
 
 
 
-const App = () => {
 
-  
-  const router=createBrowserRouter(
-    createRoutesFromElements( 
+function App() {
+  return (
     <>
+  <Routes>
     <Route path='/' element={<HomePage/>}/>
     <Route path='/category' element={<CategoryPage/>}/>
     <Route path='/category-vendor' element={<VendorCategoryPage/>}/>
@@ -43,16 +42,15 @@ const App = () => {
     <Route path='/service/:id' element={<ServicePage/>}/>
     <Route path='/packages/:id' element={<PackagePage/>}/>
 
-
+    </Routes>
 
 
 
     </>
   )
   
-);
-
-  return <RouterProvider router={router}/>;
 }
+
+
 
 export default App;
