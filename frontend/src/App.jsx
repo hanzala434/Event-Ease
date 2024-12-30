@@ -17,6 +17,8 @@ import SetupBudget from './pages/SetupBudget';
 import AddVendorPage from './pages/AddVendorPage';
 import ServiceFormPage from './pages/ServiceFormPage';
 import ServicePage from './pages/ServicePage';
+import VendorCategoryPage from './pages/VendorCategoryPage';
+import PackagePage from './pages/PackagePage';
 
 
 
@@ -28,6 +30,7 @@ const App = () => {
     <>
     <Route path='/' element={<HomePage/>}/>
     <Route path='/category' element={<CategoryPage/>}/>
+    <Route path='/category-vendor' element={<VendorCategoryPage/>}/>
     <Route path='/vendors' element={<VendorsPage/>}/>
     <Route path='/vendor-profile/:id' element={<VendorProfile/>}/>
     <Route path='/setup-budget' element={<SetupBudget/>}/>
@@ -38,6 +41,7 @@ const App = () => {
     <Route path='/thank-u' element={<ThankYou/>}/>
     <Route path='/service-form/:id' element={<ServiceFormPage/>}/>
     <Route path='/service/:id' element={<ServicePage/>}/>
+    <Route path='/packages/:id' element={<PackagePage/>}/>
 
 
 

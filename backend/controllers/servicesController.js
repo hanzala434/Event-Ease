@@ -34,11 +34,11 @@ const createServices=asyncHandler(async (req,res)=>{
         throw new Error('Please add all fields');
     }
 
-    // Fetch vendor name
-    const vendor = await Vendor.findById(req.params.id);
-    if (!vendor) {
+    // Fetch category name
+    const category = await Category.findById(req.params.id);
+    if (!category) {
         res.status(400);
-        throw new Error('Vendor not found');
+        throw new Error('Category not found');
     }
     
     const services=await Services.create({

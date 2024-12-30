@@ -9,11 +9,12 @@ const createBooking = async (bookingData,id,token) => {
         Authorization: `Bearer ${token}`,
       },
     };
-  
-    console.log("Vendor Data:", bookingData); // Check the payload
+    console.log(id)
+    console.log("Booking Data:", bookingData); // Check the payload
   
     try {
       const response = await axios.post(API_URL+id, bookingData, config);
+      console.log(response.data)
       return response.data;
     } catch (error) {
       console.error("Error creating vendor:", error.response.data); // Log the error response

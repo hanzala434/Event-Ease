@@ -2,29 +2,28 @@ const path =require('path')
 const express = require('express');
 const colors=require('colors')
 const cors = require('cors');
-const dotenv=require('dotenv').config()
+const dotenv=require('dotenv').config();
 const port = process.env.PORT || 8000;
 const connectDB=require('../config/db')
 const {errorHandler}=require('../middleware/errorMiddleware')
-const { injectSpeedInsights }=require('@vercel/speed-insights');
+//const { injectSpeedInsights }=require('@vercel/speed-insights');
  
-injectSpeedInsights();
 
 connectDB();
 const app=express();
 app.use(cors({
-  origin: 'https://event-ease-woxl.vercel.app', // Your frontend URL in production
+  origin: 'http://localhost:3000', // Your frontend URL in production
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true,
 }));
 
 app.options('*', cors()); 
 
-app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "https://event-ease-woxl.vercel.app");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  next();
-});
+// app.use((req, res, next) => {
+//   res.header("Access-Control-Allow-Origin", "https://event-ease-woxl.vercel.app");
+//   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+//   next();
+// });
 
   
 app.use(express.json());

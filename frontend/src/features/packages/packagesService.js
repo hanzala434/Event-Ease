@@ -2,7 +2,7 @@ import axios from "axios";
 
 const API_URL='/api/packages/'
 
-//create new Services
+//create new packages
 const createPackages = async (packagesData,id) => {
     
   
@@ -22,14 +22,23 @@ const createPackages = async (packagesData,id) => {
     }
   };
 
-//get Services
+//get packages
 const getPackages = async (id) => {
  
   const response = await axios.get(`${API_URL}${id}`); // Use vendor ID in the URL
       return response.data;
 }
 
-//get Services
+
+//get Single package
+const getSinglePackages = async (id) => {
+ 
+  const response = await axios.get(`${API_URL}/package/${id}`); // Use vendor ID in the URL
+      return response.data;
+}
+
+
+//get packages
 const getAllPackages = async () => {
  
     const response = await axios.get(`${API_URL}`); // Use vendor ID in the URL
@@ -42,7 +51,8 @@ const getAllPackages = async () => {
 const packagesService={
     createPackages,
     getAllPackages,
-    getPackages
+    getPackages,
+    getSinglePackages
  
 
 }

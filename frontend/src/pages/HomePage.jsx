@@ -47,9 +47,9 @@ const HomePage = () => {
   return (
 <>
 <NavBar/>
-<section className='mt-16 ml-4'>
+<div className='mt-16 ml-4 p-4'>
   <h1>Welcome {user && user.name}!</h1>
-</section>
+</div>
 <Hero/>
 <SetupBudget/>
       <div>

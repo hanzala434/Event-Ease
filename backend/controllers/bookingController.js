@@ -3,6 +3,7 @@ const Bookings=require('../models/Bookings')
 const Vendor = require('../models/Vendor')
 const twilio = require('twilio');
 const client = twilio(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKEN);
+const User = require('../models/User')
 
 //@disc get vendors
 //route GET/api/vendors
@@ -33,7 +34,7 @@ const createBooking=asyncHandler(async (req,res)=>{
         time:req.body.time,
         city:req.body.city,
         vendor: req.params.id,
-        user:req.user.id,
+        ///user:req.user.id,
         
     })
     res.status(200).json(bookings)
@@ -45,26 +46,28 @@ const createBooking=asyncHandler(async (req,res)=>{
   try {
     const message1 = await client.messages.create({
       body: `Hey ${bookings.name} your Appointment has been sent for ${bookings.type} Event at ${bookings.time} time for ${vendor.name} at ${bookings.city}!`,
-      from: process.env.TWILIO_WHATSAPP_NUMBER,
-      to: `whatsapp:${bookings.phone}`
+      messagingServiceSid: 'MGf96dc3f1ccea015c16edcbde4615b2c2',
+      from: process.env.TWILIO_NUMBER,
+      to: `${bookings.phone}`
       
     });
-    console.log('WhatsApp message sent:', message1.sid);
+    console.log('Message sent:', message1.sid);
   } catch (error) {
-    console.error('Error sending WhatsApp message:', error);
+    console.error('Error sending message:', error);
   }
   //vendor message
   try {
   const message2 = await client.messages.create({
     body: `Hey ${vendor.name} you have an Appointment for ${bookings.type} Event at ${bookings.time} time from ${bookings.name}.
     Contact Number: ${bookings.phone}`,
-    from: process.env.TWILIO_WHATSAPP_NUMBER,
-    to: `whatsapp:${vendor.phone}`
+    messagingServiceSid: 'MGf96dc3f1ccea015c16edcbde4615b2c2',
+    from: process.env.TWILIO_NUMBER,
+    to: `${vendor.phone}`
     
   });
-  console.log('WhatsApp message sent:', message2.sid);
+  console.log('Message sent:', message2.sid);
 } catch (error) {
-  console.error('Error sending WhatsApp message:', error);
+  console.error('Error sending message:', error);
 }
 }
 )

@@ -1,7 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const {
- createPackages,getAllPackages,getPackages
+ createPackages,getAllPackages,getPackages,
+ getPackageById
 } = require('../controllers/packagesController');
 
 const { protect } = require('../middleware/AuthMiddleware');
@@ -14,6 +15,9 @@ router.post('/:id', protect,createPackages);
 
 // Get all  packages for a all vendor
 router.get('/', getAllPackages);
+
+router.get('/package/:id', getPackageById);
+
 
 
 module.exports = router;

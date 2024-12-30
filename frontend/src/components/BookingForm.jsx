@@ -1,115 +1,148 @@
-import React from 'react'
-import { useState } from 'react';
-import Button from 'react-bootstrap/Button';
-import Col from 'react-bootstrap/Col';
-import Form from 'react-bootstrap/Form';
-import InputGroup from 'react-bootstrap/InputGroup';
-import Row from 'react-bootstrap/Row';
-import Select from 'react-select'
-import {getSingleVendor,reset} from '../features/vendor/vendorSlice'
-import { useDispatch,useSelector } from 'react-redux';
-import { useEffect } from 'react';
-import { useNavigate,useParams } from 'react-router-dom';
-import {createBooking} from '../features/booking/bookingSlice'
+import React, { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { useNavigate, useParams } from 'react-router-dom';
+import { getSingleVendor, reset } from '../features/vendor/vendorSlice';
+import { createBooking } from '../features/booking/bookingSlice';
 
 const BookingForm = () => {
-  const {id}=useParams();
-  const navigate=useNavigate();
+  const { id } = useParams();
+  const navigate = useNavigate();
 
-  const [formData,setFormData]=useState({
-    name:'',
-    phone:'',
-    time:'Morning',
-    type:'Wedding',
-    city:'',
-    additional:'',
-  })
-const {name,phone,type,time,city,additional}=formData
+  const [formData, setFormData] = useState({
+    name: '',
+    phone: '',
+    time: 'Morning',
+    type: 'Wedding',
+    city: '',
+    additional: '',
+  });
 
-const dispatch=useDispatch()
-dispatch(getSingleVendor(id))
+  const { name, phone, type, time, city, additional } = formData;
 
-const onSubmit=e=>{
-    e.preventDefault()
-    dispatch(createBooking(formData))
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getSingleVendor(id));
+  }, [dispatch, id]);
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    dispatch(createBooking(formData));
     setFormData({
-      name:'',
-      phone:'',
-      time:'',
-      type:'',
-      city:'',
-      additional:'',
-      });
+      name: '',
+      phone: '',
+      time: 'Morning',
+      type: 'Wedding',
+      city: '',
+      additional: '',
+    });
 
-   navigate('/thank-u');
-}
+    navigate('/thank-u');
+  };
 
-const onChange = (e) => {
+  const onChange = (e) => {
     setFormData((prevData) => ({
       ...prevData,
       [e.target.name]: e.target.value,
     }));
   };
 
-
   return (
-   <>
-  <section className='mt-16 ml-4'>
-    <form onSubmit={onSubmit}>
-        <div className='form-group'>
-            <label>Name</label>
-            <input type="text" name='name' value={name} 
-            onChange={onChange}/>
-        </div>
+    <>
+      <section className="flex justify-center items-center min-h-screen bg-gray-100">
+        <form
+          onSubmit={onSubmit}
+          className="bg-white p-6 rounded shadow-md w-full max-w-md"
+        >
+          <h2 className="text-center text-2xl font-bold mb-4">Booking Form</h2>
+          <div className="form-group mb-4">
+            <label className="block mb-2">Name</label>
+            <input
+              type="text"
+              name="name"
+              value={name}
+              onChange={onChange}
+              className="w-full p-2 border rounded"
+            />
+          </div>
 
-        <div className='form-group'>
-            <label >Phone Number</label>
-            <input type="text" name='phone' value={phone} 
-            onChange={onChange}/>
-        </div>
+          <div className="form-group mb-4">
+            <label className="block mb-2">Phone Number</label>
+            <input
+              type="text"
+              name="phone"
+              value={phone}
+              onChange={onChange}
+              className="w-full p-2 border rounded"
+            />
+          </div>
 
-        <div className='form-group'>
-        <label htmlFor="time">Event Time</label>
-          <select id="time" name="time" value={time}
-          onChange={onChange}>
-            <option value="Morning">Morning</option>
-            <option value="Evening">Evening</option>
-         
-          </select>
-        </div>
+          <div className="form-group mb-4">
+            <label htmlFor="time" className="block mb-2">
+              Event Time
+            </label>
+            <select
+              id="time"
+              name="time"
+              value={time}
+              onChange={onChange}
+              className="w-full p-2 border rounded"
+            >
+              <option value="Morning">Morning</option>
+              <option value="Evening">Evening</option>
+            </select>
+          </div>
 
-        <div className='form-group'>
-        <label htmlFor="type">Event Type</label>
-          <select id="type" name="type" value={type}
-          onChange={onChange}>
-            <option value="Wedding">Wedding</option>
-            <option value="Birthday">Birthday</option>
-            <option value="Coorporate">Coorporate</option>
+          <div className="form-group mb-4">
+            <label htmlFor="type" className="block mb-2">
+              Event Type
+            </label>
+            <select
+              id="type"
+              name="type"
+              value={type}
+              onChange={onChange}
+              className="w-full p-2 border rounded"
+            >
+              <option value="Wedding">Wedding</option>
+              <option value="Birthday">Birthday</option>
+              <option value="Coorporate">Coorporate</option>
+            </select>
+          </div>
 
-         
-          </select>
-        </div>
+          <div className="form-group mb-4">
+            <label className="block mb-2">City</label>
+            <input
+              type="text"
+              name="city"
+              value={city}
+              onChange={onChange}
+              className="w-full p-2 border rounded"
+            />
+          </div>
 
-        <div className='form-group'>
-            <label>City</label>
-            <input type="text" name='city' value={city} 
-            onChange={onChange}/>
-        </div>
+          <div className="form-group mb-4">
+            <label className="block mb-2">Additional Info</label>
+            <input
+              type="text"
+              name="additional"
+              value={additional}
+              onChange={onChange}
+              className="w-full p-2 border rounded"
+            />
+          </div>
 
-        <div className='form-group'>
-            <label>Additional Info.</label>
-            <input type="text" name='additional' value={additional} 
-            onChange={onChange}/>
-        </div>
-
-        <div className="form-group">
-            <button className="btn btn-block" type='submit'>
-                Confirm</button>
-        </div>
-    </form>
- </section>
-   </>
+          <div className="form-group">
+            <button
+              className="w-full bg-red-950 text-white border-2 py-2 rounded hover:bg-slate-50 hover:text-black"
+              type="submit"
+            >
+              Confirm
+            </button>
+          </div>
+        </form>
+      </section>
+    </>
   );
-}
+};
 
-export default BookingForm
+export default BookingForm;

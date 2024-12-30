@@ -35,7 +35,7 @@ const Vendors = () => {
   <section className='mt-16'>
     <div className='flex flex-col items-center'>
     {vendor.length > 0 ? (
-          <div className='flex flex-wrap '>
+          <div className='flex flex-wrap md:flex-row justify-center'>
             {vendor.map((vendor) => (
               <VendorItem key={vendor._id} vendor={vendor} />
             ))}

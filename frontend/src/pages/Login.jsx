@@ -6,6 +6,7 @@ import {toast} from 'react-toastify'
 import {useSelector,useDispatch} from 'react-redux'
 import { login,reset } from '../features/auth/authSlice'
 import Spinner from '../components/Spinner'
+import NavBar from '../components/NavBar'
 
 function Login() {
     const [formData,setFormData]=useState({
@@ -58,27 +59,26 @@ function Login() {
 
   return (
     <>
-    <section>
+    <NavBar/>
+    <section className='mt-16 m-2 p-4'>
         <h1>
             <FaSignInAlt/> Login
         </h1>
         <p>Please Login to Your Account</p>
-    </section>
-
-    <section>
+   
         <form onSubmit={onSubmit}>
-            <div>
+            <div className='m-2'>
             <input type='text' className='form-control' 
             id="email" name="email" value={email} placeholder='Enter Your Email' onChange={onChange}/>
             </div>
 
-            <div>
+            <div className='m-2'>
             <input type='password' className='form-control' 
             id="password" name="password" value={password} placeholder='Enter Your Password' onChange={onChange}/>
             </div>
 
-            <div>
-                <button type="submit">Submit</button>
+            <div className='flex m-auto bg-black w-10 justify-center rounded-full '>
+                <button type="submit" className='flex justify-center bg-red-900 text-white rounded-full'>Submit</button>
             </div>
         </form>
     </section>

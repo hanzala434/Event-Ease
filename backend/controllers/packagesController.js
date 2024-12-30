@@ -45,6 +45,17 @@ const createPackages=asyncHandler(async (req,res)=>{
     res.status(200).json(packages)
 }
 )
+
+const getPackageById = asyncHandler(async (req, res) => {
+    const package = await Packages.findById(req.params.id);
+
+    if (!package) {
+        res.status(404);
+        throw new Error('Package not found');
+    }
+
+    res.status(200).json(package);
+});
 // //@disc update vendors
 // //route PUT/api/vendors
 // //@access private
@@ -83,4 +94,5 @@ module.exports={
     createPackages,
     getPackages,
     getAllPackages,
+    getPackageById
 }

@@ -35,7 +35,7 @@ const onChange = (e) => {
       };
   return (
  <>
- <section className='mt-16 ml-4'>
+ <section className='mt-16 ml-4 m-2 p-4'>
     <form onSubmit={onSubmit}>
         <div className='form-group'>
             <label>Decor</label>
@@ -61,8 +61,8 @@ const onChange = (e) => {
             onChange={onChange}/>
         </div>
 
-        <div className="form-group">
-            <button className="btn btn-block" type='submit'>Add Budget</button>
+        <div className="bg-black rounded-lg h-20 flex justify-center p-2 hover:bg-white lg:w-64 m-auto">
+            <button className=" text-slate-50" type='submit'>Add Budget</button>
         </div>
     </form>
  </section>

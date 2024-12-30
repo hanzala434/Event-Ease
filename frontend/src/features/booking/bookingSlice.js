@@ -16,6 +16,7 @@ export const createBooking=createAsyncThunk('booking/createBooking',
     async(bookingData,thunkAPI)=>{
         try{
             const id=thunkAPI.getState().vendor.vendorSingle._id
+            console.log(id)
             const token=thunkAPI.getState().auth.user.token
             return await bookingService.createBooking(bookingData,id,token)
         }

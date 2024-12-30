@@ -17,15 +17,19 @@ const VendorItem = ({vendor}) => {
     navigate(`/vendor-profile/${vendor._id}`);
   };
   return (
-    <div>
-     <div onClick={handleVendorClick}>
-        <div className=" bg-red-700 rounded p-2 m-4 object-cover">
-            <img className='rounded p-4 w-96 h-64 object-cover' src={vendor.profile}/>
-            <h1 className='text-2xl text-white flex justify-center'>{vendor.name}</h1>
-            <p className='text-white flex justify-center'>{vendor.category}</p>
-        </div>
-        </div>
-    </div>
+    <div
+    className="bg-red-950 hover:bg-slate-50 border-2 text-slate-50 hover:text-red-950 border-red-50 
+               rounded p-2 m-4 transition-colors duration-300 cursor-pointer"
+    onClick={handleVendorClick}
+  >
+    <img
+      className="rounded p-4 w-full h-64 object-cover"
+      src={vendor.profile}
+      alt={`${vendor.name}'s profile`}
+    />
+    <h1 className="text-2xl flex justify-center">{vendor.name}</h1>
+    <p className="flex justify-center">{vendor.category}</p>
+  </div>
   )
 }
 

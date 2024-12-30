@@ -32,22 +32,22 @@ const Hero = () => {
   return (
     <>
       <section className="mt-14">
-        <div className=" border-4 m-2 rounded flex items-center justify-around h-80">
-          <div className="ml-16 bg-white">
-            <h1 className="text-5xl text-red-950 pl-4">Book Now!</h1>
-            <p className=" text-2xl pl-4 text-red-950">Manage Your Event Now</p>
+      <div className="border-4 m-2 rounded flex flex-col md:flex-row items-center justify-around h-auto md:h-80">
+      <div className=" bg-white lg:w-1/2">
+            <h1 className="text-5xl text-red-950 m-4">Book Now!</h1>
+            <p className=" text-2xl text-red-950 m-4">Manage Your Event Now</p>
             <button
               type="button"
               onClick={onClick}
-              className=" text-3xl bg-red-950 hover:text-red-950 text-slate-50 hover:bg-slate-50 m-4 p-2 rounded font-bold border-2 border-transparent hover:border-red-950"
+              className=" text-3xl bg-red-950  hover:text-red-950 text-slate-50 hover:bg-slate-50 m-4 p-2 rounded font-bold border-2 border-transparent hover:border-red-950 "
             >
               Explore
             </button>
           </div>
 
-          <div>
+          <div className='lg:w-1/2'>
             {latestBudget ? (
-              <div className="w-60 p-4 rounded bg-red-950 m-4 p-2">
+              <div className="w-60 p-4 rounded bg-red-950 m-4 ">
                 <h1 className="text-white">Your Budget</h1>
                 <GetItem budget={latestBudget} />
               </div>

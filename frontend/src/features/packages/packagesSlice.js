@@ -5,6 +5,7 @@ import packagesService from './packagesService'
 //get vendor from local storage
 const initialState={
     packages: [],
+    package:{},
     isError:false,
     isSuccess:false,
     isLoading:false,
@@ -32,6 +33,20 @@ export const getPackages=createAsyncThunk('packages/getPackages',async(id,thunkA
     {
         try{
          return await packagesService.getPackages(id)
+    
+         } catch(error){
+            const message=(error.response && error.response.data &&
+                 error.response.data.message) || error.message || 
+                 error.toString()
+                 return thunkAPI.rejectWithValue(message)
+        }
+    }
+)
+
+export const getSinglePackages=createAsyncThunk('packagesSingle/getPackages',async(id,thunkAPI)=>
+    {
+        try{
+         return await packagesService.getSinglePackages(id)
     
          } catch(error){
             const message=(error.response && error.response.data &&
@@ -98,6 +113,20 @@ export const packagesSlice=createSlice({
             state.message=action.payload
         })
 
+        .addCase(getSinglePackages.pending,(state)=>{
+            state.isLoading=true
+        })
+        .addCase(getSinglePackages.fulfilled,(state,action)=>{
+            state.isLoading=false
+            state.isSuccess=true
+            state.package=action.payload
+        })
+
+        .addCase(getSinglePackages.rejected,(state,action)=>{
+            state.isLoading=false
+            state.isError=true
+            state.message=action.payload
+        })
 
         .addCase(getAllPackages.pending,(state)=>{
             state.isLoading=true
