@@ -15,10 +15,10 @@ app.use(cors({
 // <<<<<<< HEAD
 //   //  origin: 'http://localhost:3000', 
 // =======
-// origin: 'http://localhost:3000', 
+origin: 'http://localhost:3000', 
 // >>>>>>> 18727c0ac7828a193dcbb801b4cbcdc0fd7a68cb
 //    
-origin: 'https://event-ease-iota.vercel.app', 
+// origin: 'https://event-ease-iota.vercel.app', 
 
   
 }));
