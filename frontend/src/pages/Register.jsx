@@ -6,6 +6,7 @@ import {FaUser} from 'react-icons/fa'
 import {useSelector,useDispatch} from 'react-redux'
 import { register,reset } from '../features/auth/authSlice'
 import Spinner from '../components/Spinner'
+import NavBar from '../components/NavBar'
 
 function Register() {
     const [formData,setFormData]=useState({
@@ -62,37 +63,39 @@ function Register() {
     }
   return (
     <>
-    <section>
+    <NavBar/>
+    <section className='mt-16 m-2 p-4'>
         <h1>
             <FaUser/> Register
         </h1>
         <p>Please Create Your Account</p>
-    </section>
+    
 
-    <section>
+    
         <form onSubmit={onSubmit}>
             <div>
-            <input type='text' className='form-control' 
+            <input type='text' className='form-control m-2' 
             id="name" name="name" value={name} placeholder='Enter Your Name' onChange={onChange}/>
             </div>
 
             <div>
-            <input type='text' className='form-control' 
+            <input type='text' className='form-control m-2' 
             id="email" name="email" value={email} placeholder='Enter Your Email' onChange={onChange}/>
             </div>
 
             <div>
-            <input type='password' className='form-control' 
+            <input type='password' className='form-control m-2' 
             id="password" name="password" value={password} placeholder='Enter Your Password' onChange={onChange}/>
             </div>
 
             <div>
-            <input type='password' className='form-control' 
+            <input type='password' className='form-control m-2' 
             id="password2" name="password2" value={password2} placeholder='Conform Your Password' onChange={onChange}/>
             </div>
-            <div>
-                <button type="submit">Submit</button>
+            <div className='btn bg-black rounded-full flex justify-center  text-white'>
+                <button type="submit" >Submit</button>
             </div>
+
         </form>
     </section>
     </>
