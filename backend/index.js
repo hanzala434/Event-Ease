@@ -12,8 +12,13 @@ const {errorHandler}=require('./middleware/errorMiddleware')
 connectDB();
 const app=express();
 app.use(cors({
-  //  origin: 'http://localhost:3000', 
-   origin: 'https://event-ease-iota.vercel.app', 
+// <<<<<<< HEAD
+//   //  origin: 'http://localhost:3000', 
+// =======
+//    // origin: 'http://localhost:3000', 
+// >>>>>>> 18727c0ac7828a193dcbb801b4cbcdc0fd7a68cb
+//    
+origin: 'https://event-ease-iota.vercel.app', 
 
   
 }));
