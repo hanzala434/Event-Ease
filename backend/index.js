@@ -23,7 +23,6 @@ origin: 'https://event-ease-iota.vercel.app',
   
 }));
 
-app.options('*', cors()); 
 
 // app.use((req, res, next) => {
 //   res.header("Access-Control-Allow-Origin", "https://event-ease-woxl.vercel.app");
