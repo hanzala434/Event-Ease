@@ -4,8 +4,8 @@
   "description": "Event Manager App",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "server": "nodemon index.js",
+    "start": "node backend/index.js",
+    "server": "nodemon backend/index.js",
     "dev": "npm run server"
   },
   "author": "",
@@ -21,10 +21,8 @@
     "express-async-handler": "^1.2.0",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.9.3",
+    "nodemon": "^3.1.9",
     "twilio": "^5.3.5"
-  },
-  "devDependencies": {
-    "nodemon": "^3.1.7"
   },
   "keywords": []
 }
