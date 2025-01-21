@@ -10,7 +10,7 @@ const User =require('../models/User')
 const registerUser= asyncHandler(async (req,res)=>{
     const {name,email,password,role}=req.body
 
-    if(!name || !email || !password ||!role){
+    if(!name || !email || !password){
         res.status(400)
         throw new Error('Please add all fields')
     }
