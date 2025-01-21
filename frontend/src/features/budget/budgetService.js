@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = `${process.env.BACKEND}/api/setup-budget/`;
+const API_URL = `${process.env.REACT_APP_BACKEND}/api/setup-budget/`;
 
 //create new budget
 const createBudget = async (budgetData, token) => {

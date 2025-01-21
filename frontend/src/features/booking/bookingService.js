@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = `${process.env.BACKEND}/api/booking/`;
+const API_URL = `${process.env.REACT_APP_BACKEND}/api/booking/`;
 
 //create new booking
 const createBooking = async (bookingData,id,token) => {
