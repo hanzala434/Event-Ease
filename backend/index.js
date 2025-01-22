@@ -54,7 +54,7 @@ const transporter = nodemailer.createTransport({
     const mailOptions = {
       from: email,
       to: 'marketease343@gmail.com', 
-      subject: 'Customer Support Merge',
+      subject: 'Customer Support EventEase',
       text: `Name: ${firstName} ${lastName}\nEmail: ${email}\nMessage: ${message}`
     };
   
