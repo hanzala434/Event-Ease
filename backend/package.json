@@ -20,6 +20,7 @@
     "express-async-handler": "^1.2.0",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.9.3",
+    "nodemailer": "^6.9.16",
     "nodemon": "^3.1.9",
     "twilio": "^5.4.0",
     "vercel": "^39.3.0"
