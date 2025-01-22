@@ -61,9 +61,9 @@ const onChange = (e) => {
             onChange={onChange}/>
         </div>
 
-        <div className="bg-black rounded-lg h-20 flex justify-center p-2 hover:bg-white lg:w-64 m-auto">
-            <button className=" text-slate-50" type='submit'>Add Budget</button>
-        </div>
+        <div className='flex justify-center p-2 '>
+                <button type="submit" className='flex justify-center p-2 bg-red-900 w-40 hover:bg-red-700 text-white rounded-full'>Add New</button>
+            </div>
     </form>
  </section>
  </>

@@ -65,10 +65,11 @@ function Register() {
     <>
     <NavBar/>
     <section className='mt-16 m-2 p-4'>
-        <h1>
-            <FaUser/> Register
+        <div className='m-auto lg:w-96 sm:w-80'>
+        <h1 className='flex justify-center'>
+            <FaUser className='mx-1'/> Register
         </h1>
-        <p>Please Create Your Account</p>
+        <p className='flex justify-center'>Please Create Your Account</p>
     
 
     
@@ -92,11 +93,12 @@ function Register() {
             <input type='password' className='form-control m-2' 
             id="password2" name="password2" value={password2} placeholder='Conform Your Password' onChange={onChange}/>
             </div>
-            <div className='btn bg-black rounded-full flex justify-center  text-white'>
-                <button type="submit" >Submit</button>
+            <div className='flex justify-center p-2 '>
+                <button type="submit" className='flex justify-center p-2 bg-red-900 w-40 hover:bg-red-700 text-white rounded-full'>Register</button>
             </div>
 
         </form>
+        </div>
     </section>
     </>
   )

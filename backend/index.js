@@ -6,29 +6,24 @@ const dotenv=require('dotenv').config();
 const port = process.env.PORT || 8000;
 const connectDB=require('./config/db')
 const {errorHandler}=require('./middleware/errorMiddleware')
-//const { injectSpeedInsights }=require('@vercel/speed-insights');
- 
+const nodemailer = require('nodemailer');
+const bodyParser = require('body-parser');
 
 connectDB();
 const app=express();
+app.use(bodyParser.json());
+
 app.use(cors({
-// <<<<<<< HEAD
-//   //  origin: 'http://localhost:3000', 
-// =======
+
 // origin: 'http://localhost:3000', 
-// >>>>>>> 18727c0ac7828a193dcbb801b4cbcdc0fd7a68cb
-//    
+
  origin: 'https://event-ease-iota.vercel.app', 
 
   
 }));
 
 
-// app.use((req, res, next) => {
-//   res.header("Access-Control-Allow-Origin", "https://event-ease-woxl.vercel.app");
-//   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-//   next();
-// });
+
 
   
 app.use(express.json());
@@ -42,19 +37,34 @@ app.use('/api/booking',require('./Routes/BookingRoutes'));
 app.use('/api/packages',require('./Routes/PackagesRoutes'));
 
 
-// // Serve frontend
-// if (process.env.NODE_ENV === 'production') {
-//     app.use(express.static(path.join(__dirname, '.../frontend/build')));
-  
-//     app.get('*', (req, res) =>
-//       res.sendFile(
-//         path.resolve(__dirname, '.../', 'frontend', 'build', 'index.html')
-//       )
-//     );
-//   } else {
-//     app.get('/', (req, res) => res.send('Please set to production'));
-//   }
 
+
+const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: 'marketease343@gmail.com',
+      pass: process.env.APP_PASS
+    }
+  });
+  
+  app.post('/api/send-email', (req, res) => {
+    const { firstName, lastName, email, message,phone } = req.body;
+    console.log(message);
+    console.log(email);
+    const mailOptions = {
+      from: email,
+      to: 'marketease343@gmail.com', 
+      subject: 'Customer Support Merge',
+      text: `Name: ${firstName} ${lastName}\nEmail: ${email}\nMessage: ${message}`
+    };
+  
+    transporter.sendMail(mailOptions, (error, info) => {
+      if (error) {
+        return res.status(500).send(error.toString());
+      }
+      res.status(200).send('Email sent: ' + info.response);
+    });
+  });
 
 app.use(errorHandler);
 app.listen(port,()=>console.log(`Server started on port ${port}`));

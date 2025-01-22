@@ -31,7 +31,7 @@ const Hero = () => {
 
   return (
     <>
-      <section className="mt-14">
+      <section className="mt-14 px-4">
       <div className="border-4 m-2 rounded flex flex-col md:flex-row items-center justify-around h-auto md:h-80">
       <div className=" bg-white lg:w-1/2">
             <h1 className="text-5xl text-red-950 m-4">Book Now!</h1>

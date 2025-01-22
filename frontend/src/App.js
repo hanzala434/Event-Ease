@@ -1,5 +1,4 @@
 import React from 'react';
-//import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Route,Routes } from 'react-router-dom';
 import HomePage from './pages/HomePage';
@@ -19,6 +18,7 @@ import ServiceFormPage from './pages/ServiceFormPage';
 import ServicePage from './pages/ServicePage';
 import VendorCategoryPage from './pages/VendorCategoryPage';
 import PackagePage from './pages/PackagePage';
+import ContactUsPage from './pages/ContactUsPage';
 
 
 
@@ -29,6 +29,8 @@ function App() {
   <Routes>
     <Route path='/' element={<HomePage/>}/>
     <Route path='/category' element={<CategoryPage/>}/>
+    <Route path='/contact-us' element={<ContactUsPage/>}/>
+
     <Route path='/category-vendor' element={<VendorCategoryPage/>}/>
     <Route path='/vendors' element={<VendorsPage/>}/>
     <Route path='/vendor-profile/:id' element={<VendorProfile/>}/>

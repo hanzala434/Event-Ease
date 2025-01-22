@@ -53,7 +53,7 @@ const Service = () => {
       {singleService && <ServiceBanner key={singleService._id} singleService={singleService} />}
       </section>
       <section>
-      {singleService && <h1 key={singleService._id} singleService={singleService} >Popular Packages from {singleService.vendorName}</h1>}
+      {singleService && <h1 key={singleService._id} singleService={singleService} className='m-4'>Popular Packages from {singleService.vendorName}</h1>}
 
       {packages.length > 0 ? (
               <div className='flex flex-wrap justify-center'>

@@ -60,11 +60,12 @@ function Login() {
   return (
     <>
     <NavBar/>
-    <section className='mt-16 m-2 p-4'>
-        <h1>
-            <FaSignInAlt/> Login
+    <section className='mt-16 p-4'>
+    <div className='m-auto lg:w-96 sm:w-80'>
+        <h1 className='flex justify-center'>
+            <FaSignInAlt className='mx-2'/> Login
         </h1>
-        <p>Please Login to Your Account</p>
+        <p className='flex justify-center'>Please Login to Your Account</p>
    
         <form onSubmit={onSubmit}>
             <div className='m-2'>
@@ -77,10 +78,11 @@ function Login() {
             id="password" name="password" value={password} placeholder='Enter Your Password' onChange={onChange}/>
             </div>
 
-            <div className='flex m-auto bg-black w-10 justify-center rounded-full p-2 '>
-                <button type="submit" className='flex justify-center bg-red-900 text-white rounded-full'>Submit</button>
+            <div className='flex justify-center p-2 '>
+                <button type="submit" className='flex justify-center p-2 bg-red-900 w-40 hover:bg-red-700 text-white rounded-full'>Submit</button>
             </div>
         </form>
+        </div>
     </section>
     </>
   )

@@ -11,7 +11,7 @@ const SetupBudget = () => {
     navigate('/setup-budget');
   };
   const handleClick2 = () => {
-    navigate('/cont');
+    navigate('/contact-us');
   };
 
   return (

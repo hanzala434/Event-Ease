@@ -48,7 +48,7 @@ const BookingForm = () => {
 
   return (
     <>
-      <section className="flex justify-center items-center min-h-screen bg-gray-100">
+      <section className="flex p-4 justify-center items-center min-h-screen bg-gray-100">
         <form
           onSubmit={onSubmit}
           className="bg-white p-6 rounded shadow-md w-full max-w-md"

@@ -17,7 +17,7 @@ const Category = () => {
           {/* Wedding Category */}
           <div
             onClick={handleClick1}
-            className="group rounded bg-slate-50 border-2 border-red-950 m-4 h-60 w-full lg:w-auto flex flex-col justify-center items-center cursor-pointer 
+            className="group rounded bg-slate-50 border-2 border-red-950 m-4 h-60 w-full lg:w-full flex flex-col justify-center items-center cursor-pointer 
                  transition-colors duration-300 hover:bg-red-950 hover:text-slate-50"
           >
             <div className="flex flex-col items-center">
@@ -31,7 +31,7 @@ const Category = () => {
           {/* Birthdays Category */}
           <div
             onClick={handleClick1}
-            className="group rounded bg-slate-50 border-2 border-red-950 m-4 h-60 w-full lg:w-auto flex flex-col justify-center items-center cursor-pointer 
+            className="group rounded bg-slate-50 border-2 border-red-950 m-4 h-60 w-full lg:w-full flex flex-col justify-center items-center cursor-pointer 
                  transition-colors duration-300 hover:bg-red-950 hover:text-slate-50"
           >
             <div className="flex flex-col items-center">
@@ -45,7 +45,7 @@ const Category = () => {
           {/* Corporate Category */}
           <div
             onClick={handleClick1}
-            className="group rounded bg-slate-50 border-2 border-red-950 m-4 h-60 w-full lg:w-auto flex flex-col justify-center items-center cursor-pointer 
+            className="group rounded bg-slate-50 border-2 border-red-950 m-4 h-60 w-full lg:w-full flex flex-col justify-center items-center cursor-pointer 
                  transition-colors duration-300 hover:bg-red-950 hover:text-slate-50"
           >
             <div className="flex flex-col items-center">
